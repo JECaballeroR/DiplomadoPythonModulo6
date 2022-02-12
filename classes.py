@@ -76,7 +76,7 @@ class APIModelBackEnd():
     def _load_model(self, model_filename: str = 'modelo.pkl'):
         '''
         Clase para cargar el modelo. Es una forma exótica de correr joblib.load pero teniendo funcionalidad con la API.
-        Este método seguramente no lo van a cambiar
+        Este método seguramente no lo van a cambiar, y si lo cambian, cambian el valor por defecto del string
         '''
         # Asignamos a un atributo el nombre del archivo
         self.model_filename = model_filename

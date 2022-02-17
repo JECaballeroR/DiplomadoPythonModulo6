@@ -6,7 +6,7 @@ from classes import ModelInput, ModelOutput, APIModelBackEnd
 app = FastAPI(title="API de Machine Learning del Diplomado", version="1.0.0")
 
 # Con el decorador, ponemos en el endpoint /predict la funcionalidad de la función predict_proba
-# response_model=List[ModelOuput] es que puede responder una lista de instancias válidad de ModelOutput
+# response_model=List[ModelOuput] es que puede responder una lista de instancias válidas de ModelOutput
 # En la definición, le decimos que los Inputs son una lista de ModelInput.
 # Así, la API recibe para hacer multiples predicciones
 

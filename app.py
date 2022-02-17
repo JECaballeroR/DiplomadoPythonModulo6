@@ -27,7 +27,9 @@ request_data=[{
     'average_montly_hours': average_montly_hours,
     'salary_level': salary_level
 }]
-url_api='http://127.0.0.1:8000/predict'
+
+#url_api='http://127.0.0.1:8000/predict'
+url_api='http://0.0.0.0:8000/predict'
 data = str(request_data).replace("'", '"')
 prediccion= requests.post(url=url_api, data=data).text
 st.sidebar.markdown("---")

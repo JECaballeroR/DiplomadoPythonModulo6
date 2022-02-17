@@ -13,7 +13,7 @@ app = FastAPI(title="API de Machine Learning del Diplomado", version='1.0.0')
 async def predict_proba(Inputs: List[ModelInput]):
     '''Endpoint de predicción de la API'''
     #Creamos una lista vacía con las respuestas
-    response = []
+    response = list()
     #Iteramos por todas las entradas que damos
     for Input in Inputs:
         # Usamos nuestra Clase en el backenp para predecir con nuestros inputs.

@@ -3,6 +3,8 @@ import requests
 import pandas as pd
 import plotly.express as px
 
+st.set_page_config(layout="wide")
+
 @st.cache
 def cargar_datos(filename:str):
     return pd.read_csv(filename)

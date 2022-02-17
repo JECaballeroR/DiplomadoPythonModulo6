@@ -1,7 +1,7 @@
 import subprocess
 import requests
 
-api_port=8000
+api_port = 8000
 api_url = f"http://0.0.0.0:{api_port}"
 
 try:

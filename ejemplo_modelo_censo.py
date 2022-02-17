@@ -25,7 +25,7 @@ def get_X_y(df, y_name):
     y = [y_name]
     X = [col for col in df.columns if col not in y]
     y = df[y].copy().values.flatten()
-    X = pd.get_dummies(df[X].copy())
+    X = pd.get_dummies(df[X].copy(), drop_first=True)
     return X, y
 
 

@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(layout="wide")
+st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
+st.sidebar.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 
 st.header("Holi, soy una webapp en streamlit :)")
 st.sidebar.header("Holi, soy un texto en el sidebar")
@@ -72,3 +74,7 @@ def plot_simple(df, x, y, sales_filter):
 plot, d = plot_simple(datos_agrupados, "salary", opcion_y, opcion_sales)
 st.plotly_chart(plot)
 st.write(d)
+st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
+st.sidebar.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
+st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
+st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")

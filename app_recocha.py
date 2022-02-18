@@ -40,7 +40,8 @@ if radio_button == "Decir Holi":
 else:
     st.markdown("Me dijeron que no dijera que dijera no decir holi")
 
-datos_agrupados = datos.groupby(["salary", "sales"]).mean().reset_index().copy()
+datos_agrupados = datos.groupby(["salary", "sales"])\
+    .mean().reset_index().copy()
 
 st.dataframe(datos_agrupados)
 st.sidebar.markdown("---")
@@ -64,7 +65,7 @@ opcion_y = st.sidebar.selectbox(
 
 
 @st.cache
-def plot_simple(df, x, y, sales_filter):
+def plot_simple(df: pd.DataFrame, x: pd.DataFrame, y, sales_filter: str):
     data = df.copy()
     data = data[data["sales"] == sales_filter]
     fig = px.bar(data, x=x, y=y)

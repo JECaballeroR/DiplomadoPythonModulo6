@@ -57,7 +57,7 @@ class APIModelBackEnd:
     Esta clase maneja el back end de nuestro modelo de Machine Learning para la API en FastAPI
     """
 
-    def __init__(self, satisfaction_level, average_montly_hours, salary_level):
+    def __init__(self, satisfaction_level: float, average_montly_hours: int, salary_level: str):
         """
         Este método se usa al instanciar las clases
 

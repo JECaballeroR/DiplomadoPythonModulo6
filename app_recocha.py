@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title='App recocha diplomado Python',
+                   page_icon="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",)
+st.sidebar.image('pythonlogo.png')
 st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 st.sidebar.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 
@@ -79,3 +81,13 @@ st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 st.sidebar.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
 st.header("NO OLVIDEN MODIFICAR LA ESCALA DE COLOR DE PLOTLY")
+
+import time
+
+with st.spinner('Wait for it...'):
+    time.sleep(5)
+st.success('Done!')
+st.balloons()
+
+input_text=st.text_input(label='Input')
+st.write(f'Output: {input_text}')

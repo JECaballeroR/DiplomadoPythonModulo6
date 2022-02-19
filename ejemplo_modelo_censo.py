@@ -7,20 +7,7 @@ from sklearn.metrics import r2_score
 
 def get_X_y(df, y_name):
     """
-    Splits a DataFrame in X (Features) and y (response variable)
-    Parameters
-    ----------
-    df : DataFrame
-        A DataFrame that has column features.
-    y_name : str
-        The name of the target varriable in the DataFrame.
-
-    Returns
-    -------
-    X : DataFrame
-        DataFrame with the features used to predict y.
-    y : Array(int)
-        Array with the response variable's values.
+    Obtiene X y y
     """
     y = [y_name]
     X = [col for col in df.columns if col not in y]
@@ -31,28 +18,7 @@ def get_X_y(df, y_name):
 
 def pipeline_classifier(X, y, model, param_grid):
     """
-    Creates a general Pipeline for sklearn classifiers.
-    Applies GridSearchCV to optimize hyper parameters of the model.
-
-    Parameters
-    ----------
-    X : {array-like, sparse matrix} of shape (n_samples, n_features)
-        Input values
-    y : {array-like, sparse matrix} of shape (n_samples)
-        Target values
-    model : sklearn.estimator object
-        Instance of an estimator form sklearn.
-    param_grid: dict or list of dictionaries
-        Dictionary with parameters names (str) as keys and lists of parameter
-        settings to try as values, or a list of such dictionaries, in which case
-        the grids spanned by each dictionary in the list are explored.
-        This enables searching over any sequence of parameter settings.
-
-    Returns
-    -------
-    model : sklearn.estimator instance
-        Fitted classifier or a fitted Pipeline in which the last estimator
-        is a classifier.
+    Hace un pipeline de regresion
     """
     pipe = make_pipeline(StandardScaler(), model)
     reg = GridSearchCV(pipe,

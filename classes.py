@@ -24,7 +24,7 @@ class ModelInput(PydanticBaseModel):
 
     satisfaction_level: float = Field(description="Nivel de Satisfacción", ge=0, le=1)
     average_montly_hours: int = Field(
-        description="Horas promedio trabajas al mes", ge=8, le=310
+        description="Horas promedio trabajadas al mes", ge=8, le=310
     )
     salary_level: Literal["high", "low", "medium"]
 
@@ -33,7 +33,7 @@ class ModelInput(PydanticBaseModel):
         schema_extra = {
             "example": {
                 "satisfaction_level": 0.69,
-                "average_montly_hours": 242,
+                "average_montly_hours": 42,
                 "salary_level": "high",
             }
         }
@@ -68,18 +68,31 @@ class APIModelBackEnd:
         https://www.udacity.com/blog/2021/11/__init__-in-python-an-overview.html
 
         Este método lo cambian según sus inputs
+
+        @param satisfaction_level: Nivel de satisfacción
+        @param average_montly_hours: Horas promedio trabajadas al mes
+        @param salary_level: Nivel de salario
         """
         self.satisfaction_level = satisfaction_level
+        """Nivel de Satisfacción"""
         self.average_montly_hours = average_montly_hours
+        """Horas promedio trabajadas al mes"""
         self.salary_level = salary_level
+        """Nivel de salario"""
+
+        self.model= None
+        """Modelo de ML cargado por el método L{_load_model}"""
 
     def _load_model(self, model_filename: str = "modelo.pkl"):
         """
         Clase para cargar el modelo. Es una forma exótica de correr joblib.load pero teniendo funcionalidad con la API.
         Este método seguramente no lo van a cambiar, y si lo cambian, cambian el valor por defecto del string
+
+        @param model_filename: Nombre del modelo en formato .pkl
         """
         # Asignamos a un atributo el nombre del archivo
         self.model_filename = model_filename
+        """Nombre del modelo"""
         try:
             # Se intenta cargar el modelo
             self.model = joblib.load(self.model_filename)
@@ -146,7 +159,9 @@ class APIModelBackEnd:
         prediction = pd.DataFrame(self.model.predict_proba(X)[:,1]).rename(columns={0:y_name})
         por
         prediction = pd.DataFrame(self.model.predict(X)).rename(columns={0:y_name})
+        @param y_name: Nombre de la variable de salida del modelo
 
+        @returns: JSON de la predicción
         """
         self._load_model()
         x = self._prepare_data()

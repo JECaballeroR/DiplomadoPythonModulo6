@@ -1,3 +1,4 @@
+"""Web app desarrollada en Streamlit para el diplomado de python de la universidad de Córdoba"""
 import streamlit as st
 import requests
 import pandas as pd
@@ -5,14 +6,26 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 
-
+col1 =[]
+'''Columna usada en streamlit'''
 @st.cache
 def cargar_datos(filename: str):
+    '''Wrapper para cargar datos
+
+    @param filename: Nombre del archivo'''
     return pd.read_csv(filename)
 
 
 @st.cache
-def plot_heatmap(df, x, y):
+def plot_heatmap(df: pd.DataFrame, x: str, y: str):
+    '''
+    Función para dibujar un heatmap
+
+    @param df: Datos
+    @param x: Variable eje x
+    @param y: Variable eje y
+    @return: figura de plotly
+    '''
     data_heatmap = (
         df.reset_index()[[x, y, "index"]]
         .groupby([x, y])

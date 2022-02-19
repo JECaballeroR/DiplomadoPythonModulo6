@@ -1,0 +1,1 @@
+"""Ejemplo diplomado de Python"""
